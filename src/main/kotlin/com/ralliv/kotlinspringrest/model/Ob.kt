@@ -1,6 +1,6 @@
 package com.ralliv.kotlinspringrest.model
 
-
+// var === let, val === const. If mutable (var), it'll have get/set. If not (val), only get
 data class Ob( var id: String, var name: String, var desc: String)
 
 /*
