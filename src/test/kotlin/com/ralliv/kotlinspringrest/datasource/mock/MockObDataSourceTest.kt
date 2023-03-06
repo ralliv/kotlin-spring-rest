@@ -1,6 +1,6 @@
 package com.ralliv.kotlinspringrest.datasource.mock
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 
 class MockObDataSourceTest {
