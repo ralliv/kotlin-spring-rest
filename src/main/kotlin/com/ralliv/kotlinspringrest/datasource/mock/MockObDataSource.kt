@@ -12,6 +12,6 @@ class MockObDataSource: ObDataSource {
     }
 
     override fun getOb(id: String): Ob {
-        return obsList.first { it.id == id }
+        return obsList.firstOrNull{ it.id == id } ?: throw NoSuchElementException("Could not find OB with id $id")
     }
 }
