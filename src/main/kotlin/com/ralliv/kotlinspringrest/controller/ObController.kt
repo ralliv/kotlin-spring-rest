@@ -23,4 +23,10 @@ class ObController(private val service: ObService) {
     fun handleNotFound(e: NoSuchElementException): ResponseEntity<String> {
         return ResponseEntity(e.message, HttpStatus.NOT_FOUND) //return http response
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    fun addOb(@RequestBody ob: Ob): Ob {
+        return service.addOb(ob)
+    }
 }

@@ -13,4 +13,8 @@ class ObService (private val dataSource: ObDataSource) {
     fun getOb(id: String): Ob {
         return dataSource.getOb(id)
     }
+
+    fun addOb(ob: Ob): Ob {
+        return dataSource.addOb(ob)
+    }
 }
