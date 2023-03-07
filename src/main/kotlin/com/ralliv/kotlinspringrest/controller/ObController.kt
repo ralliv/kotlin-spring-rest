@@ -2,10 +2,9 @@ package com.ralliv.kotlinspringrest.controller
 
 import com.ralliv.kotlinspringrest.model.Ob
 import com.ralliv.kotlinspringrest.service.ObService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("obs")
@@ -18,5 +17,10 @@ class ObController(private val service: ObService) {
     @GetMapping("/{id}")
     fun getOb(@PathVariable id: String): Ob {
         return service.getOb(id)
+    }
+    //map internal exception coming from kotlin
+    @ExceptionHandler(NoSuchElementException::class)
+    fun handleNotFound(e: NoSuchElementException): ResponseEntity<String> {
+        return ResponseEntity(e.message, HttpStatus.NOT_FOUND) //return http response
     }
 }

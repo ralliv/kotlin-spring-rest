@@ -34,4 +34,15 @@ internal class ObControllerTest {
                 status { isOk() }
             }
     }
+
+    @Test
+    fun `should return NOT FOUND if not exists`() {
+        val obId = "test"
+        //integration test
+        mockMvc.get("/obs/$obId")
+            .andDo { print() }
+            .andExpect {
+                status { isNotFound() }
+            }
+    }
 }
