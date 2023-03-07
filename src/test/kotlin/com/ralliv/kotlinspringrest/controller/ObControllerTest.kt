@@ -23,4 +23,15 @@ internal class ObControllerTest {
             value("es")
         }} }
     }
+
+    @Test
+    fun `should return single ob`() {
+        val obId = "es"
+        //integration test
+        mockMvc.get("/obs/$obId")
+            .andDo { print() }
+            .andExpect {
+                status { isOk() }
+            }
+    }
 }

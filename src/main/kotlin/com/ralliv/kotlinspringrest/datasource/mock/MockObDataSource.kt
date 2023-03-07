@@ -10,4 +10,8 @@ class MockObDataSource: ObDataSource {
     override fun getObs(): Collection<Ob> {
         return obsList
     }
+
+    override fun getOb(id: String): Ob {
+        return obsList.first { it.id == id }
+    }
 }

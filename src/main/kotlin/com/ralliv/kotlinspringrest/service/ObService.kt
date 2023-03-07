@@ -9,4 +9,8 @@ class ObService (private val dataSource: ObDataSource) {
     fun getObs(): Collection<Ob> {
         return dataSource.getObs()
     }
+
+    fun getOb(id: String): Ob {
+        return dataSource.getOb(id)
+    }
 }
